@@ -30,6 +30,10 @@ func TestAccDataSourceRepositoryMavenGroup(t *testing.T) {
 		Group: repository.Group{
 			MemberNames: []string{repoHosted.Name},
 		},
+		Maven: &repository.Maven{
+			VersionPolicy: repository.MavenVersionPolicyRelease,
+			LayoutPolicy:  repository.MavenLayoutPolicyStrict,
+		},
 	}
 	dataSourceName := "data.nexus_repository_maven_group.acceptance"
 
